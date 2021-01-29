@@ -1,0 +1,71 @@
+{
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "fatigue": {
+        "value": 0
+      },
+      "magic": {
+        "value": 0
+      },
+      "wounds": {
+        "value": 0,
+        "min": 0,
+        "max": 5
+      },
+      "biography": "",
+      "level": {
+        "value": 1
+      },
+      "abilities": {
+        "str": {
+          "value": 10
+        },
+        "dex": {
+          "value": 10
+        },
+        "mind": {
+          "value": 10
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "item",
+      "skill"
+    ],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": [
+        "base"
+      ],
+      "quantity": 1
+    },
+    "skill": {
+      "templates": [
+        "base"
+      ],
+      "img": "icons/svg/upgrade.svg",
+      "mod": 1
+    }
+  }
+}
