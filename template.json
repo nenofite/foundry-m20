@@ -64,7 +64,6 @@
       "templates": [
         "base"
       ],
-      "img": "icons/svg/upgrade.svg",
       "mod": 1
     }
   }

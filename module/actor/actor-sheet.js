@@ -23,6 +23,7 @@ export class MicroliteActorSheet extends ActorSheet {
     data.dtypes = ["String", "Number", "Boolean"];
     data.skills = this.actor.itemTypes.skill;
     data.gear = this.actor.itemTypes.item;
+    data.skillsTitle = "Skills"; // TODO backgrounds
     // data.actor.traits = [...this.actor.items.filter(i => i.type === 'trait')];
     return data;
   }
@@ -36,7 +37,7 @@ export class MicroliteActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
-    html.find('.trait-create').click(this._createTrait.bind(this));
+    html.find('.trait-create').click(this._createSkill.bind(this));
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
@@ -55,9 +56,9 @@ export class MicroliteActorSheet extends ActorSheet {
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
 
-    html.find('.trait-create').click((event) => {
+    html.find('.create-skill').click((event) => {
       event.preventDefault();
-      return this._createTrait();
+      return this._createSkill();
     })
   }
 
@@ -113,11 +114,11 @@ export class MicroliteActorSheet extends ActorSheet {
   /**
    * Create a new trait
    */
-  _createTrait(event) {
+  _createSkill(event) {
     event?.preventDefault();
     const itemData = {
-      name: "New trait",
-      type: "trait",
+      name: "New skill",
+      type: "skill",
       img: "icons/svg/upgrade.svg",
       data: {}
     };
