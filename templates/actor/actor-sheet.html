@@ -14,88 +14,7 @@
     </div>
   </header>
 
-  {{!-- <div class="resources grid grid-2col">
-    <div class="resource flex-group-center">
-      <label for="data.health.value" class="resource-label">Health</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number" />
-        <span> / </span>
-        <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number" />
-      </div>
-    </div>
-    <div class="resource flex-group-center">
-      <label for="data.wounds.value" class="resource-label">Wounds</label>
-      <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="data.wounds.value" value="{{data.wounds.value}}" data-dtype="Number" />
-        <span> / </span>
-        <input type="text" name="data.wounds.max" value="{{data.wounds.max}}" data-dtype="Number" />
-      </div>
-    </div>
-  </div> --}}
-
-  {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-  use both the "grid" and "grid-Ncol" class where "N" can be any number
-  from 1 to 12 and will create that number of columns. --}}
-  <div class="abilities grid grid-3col">
-    {{!-- #each data.abilities as |ability key|}}
-    <div class="ability flexrow flex-group-center">
-      <label for="data.abilities.{{key}}.value" class="resource-label">{{key}}</label>
-      <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-      <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{key}}">{{numberFormat
-        ability.mod decimals=0 sign=true}}</span>
-    </div>
-    {{/each --}}
-  </div>
-
-  <div class="flexrow">
-    {{!-- <div class="grid grid-9col">
-      <div class="flex-group-center grid-4col">
-        <div class="flex-center">Vitals</div>
-        <div class="flex-left">Fatigue</div>
-        <div class="flex-left">Magic</div>
-        <div class="flex-left">HP</div>
-        <div class="flex-left">Max</div>
-      </div>
-      <div class="flex-group-center grid-2col">
-        <div class="flex-center">Wounds</div>
-      </div>
-      <div class="flex-group-center grid-3col">
-        <div class="flex-center">Stats</div>
-      </div>
-    </div> --}}
-
-    {{!-- <table>
-      <thead>
-        <tr>
-          <th colspan="4">Health</th>
-          <th colspan="2">Wounds</th>
-          <th colspan="3">Stats</th>
-        </tr>
-        <tr>
-          <th>Fatigue</th>
-          <th>Magic</th>
-          <th>HP</th>
-          <th>Max</th>
-          <th>WP</th>
-          <th>Max</th>
-          <th>Strength</th>
-          <th>Agility</th>
-          <th>Mind</th>
-        </tr>
-      </thead>
-      <tbody>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tbody>
-    </table> --}}
-
+  <div class="flexrow" style="flex: 0 0">
     <table class="flex-group-center">
       <thead>
         <tr>
@@ -149,14 +68,6 @@
         </tr>
       </thead>
       <tbody>
-        {{!-- <td>
-          <input type="text" name="data.abilities.str.value" value="{{data.abilities.str.value}}" data-dtype="Number" />
-          <span class="ability-mod rollable" data-roll="d20+@abilities.str.mod" data-label="STR">{{numberFormat
-            ability.mod decimals=0 sign=true}}</span>
-        </td>
-        <td>0</td>
-        <td>0</td> --}}
-
         {{#each data.abilities as |ability key|}}
         <td>
           <input style="width: 2em" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
@@ -167,17 +78,17 @@
         {{/each}}
       </tbody>
     </table>
-
   </div>
 
   <div class="skills">
     <ol class="items-list">
       <li class="item flexrow item-header">
         <div class="item-image"></div>
-        <div class="item-name">{{skillsTitle}}</div>
+        <div class="item-name">{{backgroundsTitle}}</div>
         <div class="item-controls">
-          <a class="item-control create-skill" title="Add skill" data-type="skill"><i class="fas fa-plus"></i> Add
-            skill</a>
+          {{#if editableBackgrounds}}
+          <a class="item-control create-skill" title="Add skill" data-type="skill"><i class="fas fa-plus"></i></a>
+          {{/if}}
         </div>
       </li>
       {{#each skills as |item id|}}
@@ -194,7 +105,9 @@
         </div>
         <div class="item-controls">
           <a class="item-control item-edit" title="Edit skill"><i class="fas fa-edit"></i></a>
+          {{#if editableBackgrounds}}
           <a class="item-control item-delete" title="Delete skill"><i class="fas fa-trash"></i></a>
+          {{/if}}
         </div>
       </li>
       {{/each}}

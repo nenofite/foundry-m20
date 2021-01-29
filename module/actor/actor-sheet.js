@@ -23,8 +23,10 @@ export class MicroliteActorSheet extends ActorSheet {
     data.dtypes = ["String", "Number", "Boolean"];
     data.skills = this.actor.itemTypes.skill;
     data.gear = this.actor.itemTypes.item;
-    data.skillsTitle = "Skills"; // TODO backgrounds
-    // data.actor.traits = [...this.actor.items.filter(i => i.type === 'trait')];
+
+    const useBackgrounds = game.settings.get('m20', 'useBackgrounds');
+    data.editableBackgrounds = useBackgrounds;
+    data.backgroundsTitle = useBackgrounds ? "Backgrounds" : "Skills";
     return data;
   }
 

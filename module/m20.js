@@ -11,6 +11,8 @@ Hooks.once('init', async function () {
     MicroliteItem
   };
 
+  registerWorldSettings();
+
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -49,3 +51,21 @@ Hooks.once('init', async function () {
     return str.toUpperCase();
   });
 });
+
+function registerWorldSettings() {
+  game.settings.register('m20', 'useBackgrounds', {
+    name: "Use backgrounds",
+    hint: "Character sheets have Microlite2020's backgrounds instead of skills",
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: _value => updateAllActors(),
+  });
+}
+
+async function updateAllActors() {
+  for (const a of game.actors) {
+    a.render(true);
+  }
+}

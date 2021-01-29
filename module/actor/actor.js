@@ -1,3 +1,30 @@
+const BASE_SKILLS = Object.freeze([
+  {
+    name: "Physical",
+    type: "skill",
+    img: "icons/svg/upgrade.svg",
+    data: {}
+  },
+  {
+    name: "Subterfuge",
+    type: "skill",
+    img: "icons/svg/upgrade.svg",
+    data: {}
+  },
+  {
+    name: "Knowledge",
+    type: "skill",
+    img: "icons/svg/upgrade.svg",
+    data: {}
+  },
+  {
+    name: "Communication",
+    type: "skill",
+    img: "icons/svg/upgrade.svg",
+    data: {}
+  },
+]);
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -25,6 +52,10 @@ export class MicroliteActor extends Actor {
   _prepareCharacterData(actorData) {
     const data = actorData.data;
 
+    if (this.itemTypes.skill.length <= 0) {
+      this._addBaseSkills();
+    }
+
     // Make modifications to data here. For example:
 
     // Loop through ability scores, and add their modifiers to our sheet output.
@@ -43,4 +74,9 @@ export class MicroliteActor extends Actor {
     data.health.value = data.health.max - data.fatigue.value - data.magic.value;
   }
 
+  async _addBaseSkills() {
+    for (const skill of BASE_SKILLS) {
+      await this.createOwnedItem(skill);
+    }
+  }
 }
