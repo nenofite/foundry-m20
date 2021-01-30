@@ -14,16 +14,19 @@
     </div>
   </header>
 
-  <div class="flexrow" style="flex: 0 0">
+  <div class="flexcol" style="flex: 0 0">
     <table class="flex-group-center">
       <thead>
         <tr>
           <th colspan="4">Health</th>
+          <th colspan="2">Wounds</th>
         </tr>
         <tr>
           <th>Fatigue</th>
           <th>Magic</th>
           <th>HP</th>
+          <th>Max</th>
+          <th>WP</th>
           <th>Max</th>
         </tr>
       </thead>
@@ -35,20 +38,6 @@
         <td>{{data.health.value}}</td>
         <td><input style="width: 2em" type="text" name="data.health.max" value="{{data.health.max}}"
             data-dtype="Number" /></td>
-      </tbody>
-    </table>
-
-    <table class="flex-group-center">
-      <thead>
-        <tr>
-          <th colspan="2">Wounds</th>
-        </tr>
-        <tr>
-          <th>WP</th>
-          <th>Max</th>
-        </tr>
-      </thead>
-      <tbody>
         <td><input style="width: 2em" type="text" name="data.wounds.value" value="{{data.wounds.value}}"
             data-dtype="Number" /></td>
         <td><input style="width: 2em" type="text" name="data.wounds.max" value="{{data.wounds.max}}"
@@ -60,11 +49,14 @@
       <thead>
         <tr>
           <th colspan="3">Stats</th>
+          <th colspan="2">Combat</th>
         </tr>
         <tr>
           <th>Strength</th>
           <th>Agility</th>
           <th>Mind</th>
+          <th>AC</th>
+          <th>CB</th>
         </tr>
       </thead>
       <tbody>
@@ -76,6 +68,14 @@
             data-label="{{toUpperCase key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
         </td>
         {{/each}}
+        <td>
+          <input style="width: 2em" type="text" name="data.combat.ac.value" value="{{data.combat.ac.value}}"
+            data-dtype="Number" />
+        </td>
+        <td>
+          <input style="width: 2em" type="text" name="data.combat.cb.value" value="{{data.combat.cb.value}}"
+            data-dtype="Number" />
+        </td>
       </tbody>
     </table>
   </div>

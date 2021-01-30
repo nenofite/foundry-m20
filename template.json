@@ -41,6 +41,14 @@
         "mind": {
           "value": 10
         }
+      },
+      "combat": {
+        "ac": {
+          "value": 10
+        },
+        "cb": {
+          "value": 1
+        }
       }
     }
   },
