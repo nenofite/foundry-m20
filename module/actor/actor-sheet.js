@@ -1,3 +1,5 @@
+import { useBackgrounds as useBackgroundsSetting } from "../settings.js";
+
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -24,7 +26,7 @@ export class MicroliteActorSheet extends ActorSheet {
     data.skills = this.actor.itemTypes.skill;
     data.gear = this.actor.itemTypes.item;
 
-    const useBackgrounds = game.settings.get('m20', 'useBackgrounds');
+    const useBackgrounds = useBackgroundsSetting.get();
     data.editableBackgrounds = useBackgrounds;
     data.backgroundsTitle = useBackgrounds ? "Backgrounds" : "Skills";
     return data;

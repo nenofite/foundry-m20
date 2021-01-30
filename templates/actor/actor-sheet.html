@@ -105,11 +105,13 @@
         </div>
         <div class="item-controls">
           <a class="item-control item-edit" title="Edit skill"><i class="fas fa-edit"></i></a>
-          {{#if editableBackgrounds}}
+          {{#if ../editableBackgrounds}}
           <a class="item-control item-delete" title="Delete skill"><i class="fas fa-trash"></i></a>
           {{/if}}
         </div>
       </li>
+      {{else}}
+      No backgrounds.
       {{/each}}
     </ol>
   </div>

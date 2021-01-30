@@ -1,3 +1,5 @@
+import { useBackgrounds } from "../settings.js";
+
 const BASE_SKILLS = Object.freeze([
   {
     name: "Physical",
@@ -49,11 +51,11 @@ export class MicroliteActor extends Actor {
   /**
    * Prepare Character type specific data
    */
-  _prepareCharacterData(actorData) {
+  async _prepareCharacterData(actorData) {
     const data = actorData.data;
 
-    if (this.itemTypes.skill.length <= 0) {
-      this._addBaseSkills();
+    if (!useBackgrounds.get() && this.itemTypes.skill.length <= 0) {
+      await this._addBaseSkills();
     }
 
     // Make modifications to data here. For example:
