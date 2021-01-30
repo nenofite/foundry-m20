@@ -114,6 +114,10 @@
   justify-content: space-between;
 }
 
+.m20 table th:not(:last-child) {
+  border-right: 1px solid black;
+}
+
 /* Styles limited to m20 sheets */
 .m20 .item-form {
   font-family: "Roboto", sans-serif;

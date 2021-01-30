@@ -5,8 +5,16 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
-      <div class="resources">
+      <div class="flexrow">
         <div class="resource">
+          <label for="data.ancestry.value" class="resource-label">Ancestry</label>
+          <input type="text" name="data.ancestry.value" value="{{data.ancestry.value}}" data-dtype="String" />
+        </div>
+        <div class="resource">
+          <label for="data.class.value" class="resource-label">Class</label>
+          <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String" />
+        </div>
+        <div class="resource" style="flex: 0 0">
           <label for="data.level.value" class="resource-label">Level</label>
           <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number" />
         </div>

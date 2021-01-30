@@ -9,13 +9,20 @@
           "value": 10,
           "min": 0,
           "max": 10
-        }
+        },
+        "biography": ""
       }
     },
     "character": {
       "templates": [
         "base"
       ],
+      "ancestry": {
+        "value": ""
+      },
+      "class": {
+        "value": ""
+      },
       "fatigue": {
         "value": 0
       },
@@ -27,7 +34,6 @@
         "min": 0,
         "max": 5
       },
-      "biography": "",
       "level": {
         "value": 1
       },
