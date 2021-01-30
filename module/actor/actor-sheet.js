@@ -121,7 +121,7 @@ export class MicroliteActorSheet extends ActorSheet {
   _createSkill(event) {
     event?.preventDefault();
     const itemData = {
-      name: "New skill",
+      name: "New background",
       type: "skill",
       img: "icons/svg/upgrade.svg",
       data: {}
