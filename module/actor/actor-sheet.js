@@ -63,7 +63,12 @@ export class MicroliteActorSheet extends ActorSheet {
     html.find('.create-skill').click((event) => {
       event.preventDefault();
       return this._createSkill();
-    })
+    });
+
+    html.find('.create-base-skills').click((event) => {
+      event.preventDefault();
+      return this.actor.addBaseSkills();
+    });
   }
 
   /* -------------------------------------------- */
