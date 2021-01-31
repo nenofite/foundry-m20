@@ -41,7 +41,7 @@
         "str": {
           "value": 10
         },
-        "dex": {
+        "agi": {
           "value": 10
         },
         "mind": {
@@ -82,6 +82,13 @@
         "base"
       ],
       "mod": 1
+    },
+    "weapon": {
+      "templates": [
+        "base"
+      ],
+      "damage": "1d6",
+      "bonus": 0
     }
   }
 }
