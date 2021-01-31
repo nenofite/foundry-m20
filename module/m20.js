@@ -51,4 +51,12 @@ Hooks.once('init', async function () {
   Handlebars.registerHelper('toUpperCase', function (str) {
     return str.toUpperCase();
   });
+
+  Handlebars.registerHelper('showQuantity', function (quantity) {
+    if (quantity !== 1) {
+      return `${quantity}x`;
+    } else {
+      return null;
+    }
+  })
 });
