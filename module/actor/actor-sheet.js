@@ -26,6 +26,8 @@ export class MicroliteActorSheet extends ActorSheet {
     data.skills = this.actor.itemTypes.skill;
     data.gear = this.actor.itemTypes.item;
 
+    data.showUpdateToken = !this.actor.isToken;
+
     const useBackgrounds = useBackgroundsSetting.get();
     data.editableBackgrounds = useBackgrounds;
     data.backgroundsTitle = useBackgrounds ? "Backgrounds" : "Skills";
@@ -69,6 +71,11 @@ export class MicroliteActorSheet extends ActorSheet {
       event.preventDefault();
       return this.actor.addBaseSkills();
     });
+
+    html.find('.update-token').click((event) => {
+      event.preventDefault();
+      return this.actor.updateProtoToken();
+    })
   }
 
   /* -------------------------------------------- */

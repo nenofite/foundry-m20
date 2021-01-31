@@ -68,4 +68,21 @@ export class MicroliteActor extends Actor {
       await this.createOwnedItem(skill);
     }
   }
+
+  async updateProtoToken() {
+    const t = {
+      name: this.data.name,
+      img: this.data.img,
+      actorLink: true,
+      bar1: { attribute: 'health' },
+      bar2: { attribute: 'wounds' },
+      brightSight: 60,
+      vision: true,
+      displayBars: 50,
+      displayName: 50
+    };
+    return this.update({
+      token: t
+    });
+  }
 }

@@ -2,7 +2,13 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <div class="profile-img flexcol" style="position: relative">
+      <img style="flex: 1" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+      {{#if showUpdateToken}}
+      <a style="position: absolute; bottom: 5px; right: 5px" class="update-token" title="Update token"><i
+          class="fas fa-user-circle"></i></a>
+      {{/if}}
+    </div>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
       <div class="flexrow">
