@@ -43,9 +43,11 @@ export class MicroliteItem extends Item {
   }
 
   get _skillRolls() {
-    return [
-      // TODO
-    ];
+    return ['str', 'agi', 'mind'].map(key => ({
+      roll: `d20+${this.data.data.mod}+@abilities.${key}.mod`,
+      label: `${this.name} and ${key.toUpperCase()}`,
+      button: key.toUpperCase()
+    }));
   }
 
   get _weaponRolls() {

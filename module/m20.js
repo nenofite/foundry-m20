@@ -58,5 +58,5 @@ Hooks.once('init', async function () {
     } else {
       return null;
     }
-  })
+  });
 });
