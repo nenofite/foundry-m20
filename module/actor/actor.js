@@ -1,4 +1,4 @@
-import { useBackgrounds } from "../settings.js";
+import { useBackgrounds, separateMagicFatigue } from "../settings.js";
 
 const BASE_SKILLS = Object.freeze([
   {
@@ -36,23 +36,19 @@ export class MicroliteActor extends Actor {
   /**
    * Augment the basic actor data with additional dynamic data.
    */
-  prepareData() {
-    super.prepareData();
-
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags;
+  prepareBaseData() {
+    super.prepareBaseData();
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'character') this._prepareCharacterData(actorData);
+    if (this.data.type === 'character') this._prepareCharacterData();
   }
 
   /**
    * Prepare Character type specific data
    */
-  async _prepareCharacterData(actorData) {
-    const data = actorData.data;
+  async _prepareCharacterData() {
+    const data = this.data.data;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
@@ -60,7 +56,11 @@ export class MicroliteActor extends Actor {
       ability.mod = Math.trunc((ability.value - 10) / 2);
     }
 
-    data.health.value = data.health.max - data.fatigue.value - data.magic.value;
+    if (separateMagicFatigue.get()) {
+      data.health.value = data.health.max - data.fatigue.value - data.magic.value;
+    } else {
+      data.fatigue.value = data.magic.value = 0;
+    }
   }
 
   async addBaseSkills() {

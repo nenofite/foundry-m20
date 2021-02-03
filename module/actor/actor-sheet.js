@@ -1,4 +1,4 @@
-import { useBackgrounds as useBackgroundsSetting } from "../settings.js";
+import { useBackgrounds as useBackgroundsSetting, separateMagicFatigue } from "../settings.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -31,6 +31,9 @@ export class MicroliteActorSheet extends ActorSheet {
     const useBackgrounds = useBackgroundsSetting.get();
     data.editableBackgrounds = useBackgrounds;
     data.backgroundsTitle = useBackgrounds ? "Backgrounds" : "Skills";
+
+    data.separateMagicFatigue = separateMagicFatigue.get();
+
     return data;
   }
 

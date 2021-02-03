@@ -24,8 +24,19 @@ export const useBackgrounds = new M20Setting('useBackgrounds',
         onChange: _value => updateAllActors(),
     });
 
+export const separateMagicFatigue = new M20Setting('separateMagicFatigue', {
+    name: "Separate magic points",
+    hint: "Track magic and fatigue separately. Both are summed to calculate HP.",
+    scope: 'world',
+    config: true,
+    type: Boolean,
+    default: true,
+    onChange: _value => updateAllActors(),
+});
+
 export function registerAllSettings() {
     useBackgrounds.register();
+    separateMagicFatigue.register();
 }
 
 async function updateAllActors() {

@@ -32,12 +32,18 @@
     <table class="flex-group-center">
       <thead>
         <tr>
+          {{#if separateMagicFatigue}}
           <th colspan="4">Health</th>
+          {{else}}
+          <th colspan="2">Health</th>
+          {{/if}}
           <th colspan="2">Wounds</th>
         </tr>
         <tr>
+          {{#if separateMagicFatigue}}
           <th>Fatigue</th>
           <th>Magic</th>
+          {{/if}}
           <th>HP</th>
           <th>Max</th>
           <th>WP</th>
@@ -45,11 +51,16 @@
         </tr>
       </thead>
       <tbody>
+        {{#if separateMagicFatigue}}
         <td><input style="width: 2em" type="text" name="data.fatigue.value" value="{{data.fatigue.value}}"
             data-dtype="Number" /></td>
         <td><input style="width: 2em" type="text" name="data.magic.value" value="{{data.magic.value}}"
             data-dtype="Number" /></td>
         <td>{{data.health.value}}</td>
+        {{else}}
+        <td><input style="width: 2em" type="text" name="data.health.value" value="{{data.health.value}}"
+            data-dtype="Number" /></td>
+        {{/if}}
         <td><input style="width: 2em" type="text" name="data.health.max" value="{{data.health.max}}"
             data-dtype="Number" /></td>
         <td><input style="width: 2em" type="text" name="data.wounds.value" value="{{data.wounds.value}}"
