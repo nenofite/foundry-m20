@@ -64,7 +64,8 @@
   "Item": {
     "types": [
       "item",
-      "skill"
+      "skill",
+      "weapon"
     ],
     "templates": {
       "base": {
@@ -87,8 +88,16 @@
       "templates": [
         "base"
       ],
-      "damage": "1d6",
-      "bonus": 0
+      "attack": {
+        "die": "1d20",
+        "stat": "str",
+        "bonus": ""
+      },
+      "damage": {
+        "die": "1d6",
+        "stat": "str",
+        "bonus": ""
+      }
     }
   }
 }

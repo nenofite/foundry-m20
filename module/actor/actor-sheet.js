@@ -24,7 +24,7 @@ export class MicroliteActorSheet extends ActorSheet {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     data.skills = this.actor.itemTypes.skill;
-    data.gear = this.actor.itemTypes.item;
+    data.gear = [...this.actor.itemTypes.weapon, ...this.actor.itemTypes.item];
 
     data.showUpdateToken = !this.actor.isToken;
 
