@@ -60,7 +60,7 @@ export class MicroliteItem extends Item {
   _prepareWeaponData() {
     const data = this.data.data;
 
-    const attackRoll = [data.attack.die || '1d20'];
+    const attackRoll = [data.attack.die || '1d20', '@combat.cb.value'];
     if (data.attack.stat) {
       attackRoll.push(`@abilities.${data.attack.stat}.mod`);
     }
