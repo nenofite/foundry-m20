@@ -1,7 +1,7 @@
 {
   "name": "m20",
   "title": "Microlite20",
-  "description": "The Microlite20 system for FoundryVTT!",
+  "description": "A simple character sheet for the wonderfully simple Microlite20 system.",
   "version": "1.0.0",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
@@ -26,8 +26,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "wounds",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/nenofite/foundry-m20",
+  "manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/main/system.json",
+  "download": "https://github.com/nenofite/foundry-m20/archive/main.zip",
   "license": "LICENSE.txt"
 }
