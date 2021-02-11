@@ -1,6 +1,6 @@
 # Microlite20 for FoundryVTT
 
-A simple character sheet for the wonderfully simple [Microlite20](nexus) system.
+A simple character sheet for the wonderfully simple [Microlite20][nexus] system.
 
 [nexus]: https://microlite20.org/
 
