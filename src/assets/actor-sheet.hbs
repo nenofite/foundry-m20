@@ -2,11 +2,10 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <div class="profile-img flexcol" style="position: relative">
-      <img style="flex: 1" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <div class="profile-img flexcol">
+      <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
       {{#if showUpdateToken}}
-      <a style="position: absolute; bottom: 5px; right: 5px" class="update-token" title="Update token"><i
-          class="fas fa-user-circle"></i></a>
+      <a class="update-token" title="Update token"><i class="fas fa-user-circle"></i></a>
       {{/if}}
     </div>
     <div class="header-fields">
@@ -20,7 +19,7 @@
           <label for="data.class.value" class="resource-label">Class</label>
           <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String" />
         </div>
-        <div class="resource" style="flex: 0 0">
+        <div class="level">
           <label for="data.level.value" class="resource-label">Level</label>
           <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number" />
         </div>
@@ -28,7 +27,7 @@
     </div>
   </header>
 
-  <div class="flexcol" style="flex: 0 0">
+  <div class="stats-block flexcol">
     <table class="flex-group-center">
       <thead>
         <tr>
@@ -52,20 +51,20 @@
       </thead>
       <tbody>
         {{#if separateMagicFatigue}}
-        <td><input style="width: 2em" type="text" name="data.fatigue.value" value="{{data.fatigue.value}}"
+        <td><input class="narrow-input" type="text" name="data.fatigue.value" value="{{data.fatigue.value}}"
             data-dtype="Number" /></td>
-        <td><input style="width: 2em" type="text" name="data.magic.value" value="{{data.magic.value}}"
+        <td><input class="narrow-input" type="text" name="data.magic.value" value="{{data.magic.value}}"
             data-dtype="Number" /></td>
         <td>{{data.health.value}}</td>
         {{else}}
-        <td><input style="width: 2em" type="text" name="data.health.value" value="{{data.health.value}}"
+        <td><input class="narrow-input" type="text" name="data.health.value" value="{{data.health.value}}"
             data-dtype="Number" /></td>
         {{/if}}
-        <td><input style="width: 2em" type="text" name="data.health.max" value="{{data.health.max}}"
+        <td><input class="narrow-input" type="text" name="data.health.max" value="{{data.health.max}}"
             data-dtype="Number" /></td>
-        <td><input style="width: 2em" type="text" name="data.wounds.value" value="{{data.wounds.value}}"
+        <td><input class="narrow-input" type="text" name="data.wounds.value" value="{{data.wounds.value}}"
             data-dtype="Number" /></td>
-        <td><input style="width: 2em" type="text" name="data.wounds.max" value="{{data.wounds.max}}"
+        <td><input class="narrow-input" type="text" name="data.wounds.max" value="{{data.wounds.max}}"
             data-dtype="Number" /></td>
       </tbody>
     </table>
@@ -88,29 +87,29 @@
       <tbody>
         {{#each data.abilities as |ability key|}}
         <td>
-          <input style="width: 2em" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
+          <input class="narrow-input" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
             data-dtype="Number" />
           <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod"
             data-label="{{toUpperCase key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
         </td>
         {{/each}}
         <td>
-          <input style="width: 2em" type="text" name="data.combat.ac.value" value="{{data.combat.ac.value}}"
+          <input class="narrow-input" type="text" name="data.combat.ac.value" value="{{data.combat.ac.value}}"
             data-dtype="Number" />
         </td>
         <td>
-          <input style="width: 2em" type="text" name="data.combat.cb.value" value="{{data.combat.cb.value}}"
+          <input class="narrow-input" type="text" name="data.combat.cb.value" value="{{data.combat.cb.value}}"
             data-dtype="Number" />
         </td>
         <td>
-          <input style="width: 2em" type="text" name="data.combat.init.value" value="{{data.combat.init.value}}"
+          <input class="narrow-input" type="text" name="data.combat.init.value" value="{{data.combat.init.value}}"
             data-dtype="Number" />
         </td>
       </tbody>
     </table>
   </div>
 
-  <div class="skills" style="flex: 0">
+  <div class="skills">
     <ol class="items-list">
       <li class="item flexrow item-header">
         <div class="item-image"></div>
@@ -171,7 +170,7 @@
         <li class="item flexrow item-header">
           <div class="item-image"></div>
           <div class="item-name">Name</div>
-          <div style="flex: 0 0 120px">
+          <div class="item-header-buttons">
             <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i>
               Item</a>
             <a class="item-control item-create" title="Create weapon" data-type="weapon"><i class="fas fa-plus"></i>

@@ -1,3 +1,5 @@
+import { MicroliteItem, MicroliteItemData } from './item.js';
+
 const ALLOWED_ATTRS = Object.freeze([
   'quantity', 'mod', 'weight'
 ]);
@@ -6,7 +8,7 @@ const ALLOWED_ATTRS = Object.freeze([
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
-export class MicroliteItemSheet extends ItemSheet {
+export class MicroliteItemSheet extends ItemSheet<MicroliteItemData, MicroliteItem> {
 
   /** @override */
   static get defaultOptions() {
@@ -20,20 +22,20 @@ export class MicroliteItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/m20/templates/item";
+    const path = "systems/m20/assets";
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
 
-    return `${path}/${this.item.data.type}-sheet.html`;
+    return `${path}/${this.item.data.type}-sheet.hbs`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const data = super.getData() as any;
     data.attrs = {};
     for (let key of Object.keys(this.item.data.data)) {
       if (ALLOWED_ATTRS.includes(key)) {
@@ -48,7 +50,7 @@ export class MicroliteItemSheet extends ItemSheet {
   /** @override */
   setPosition(options = {}) {
     const position = super.setPosition(options);
-    const sheetBody = this.element.find(".sheet-body");
+    const sheetBody = (this.element as JQuery).find(".sheet-body");
     const bodyHeight = position.height - 192;
     sheetBody.css("height", bodyHeight);
     return position;

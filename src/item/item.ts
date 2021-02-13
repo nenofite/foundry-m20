@@ -1,8 +1,26 @@
+export interface MicroliteItemData {
+  "description": string;
+  "quantity"?: number;
+  "mod"?: number;
+  "attack"?: {
+    "die": string;
+    "stat": string;
+    "bonus": string;
+  };
+  attackRoll?: string;
+  "damage"?: {
+    "die": string;
+    "stat": string;
+    "bonus": string;
+  };
+  damageRoll?: string;
+}
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class MicroliteItem extends Item {
+export class MicroliteItem extends Item<MicroliteItemData> {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */

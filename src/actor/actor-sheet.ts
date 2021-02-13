@@ -1,16 +1,17 @@
-import { useBackgrounds as useBackgroundsSetting, separateMagicFatigue } from "../settings.js";
+import { useBackgrounds as useBackgroundsSetting, separateMagicFatigue } from "../module/settings.js";
+import { MicroliteActor, MicroliteActorData } from "./actor.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class MicroliteActorSheet extends ActorSheet {
+export class MicroliteActorSheet extends ActorSheet<MicroliteActorData, MicroliteActor> {
 
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["m20", "sheet", "actor"],
-      template: "systems/m20/templates/actor/actor-sheet.html",
+      template: "systems/m20/assets/actor-sheet.hbs",
       width: 480,
       height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -21,7 +22,7 @@ export class MicroliteActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const data = super.getData() as any;
     data.dtypes = ["String", "Number", "Boolean"];
     data.skills = this.actor.itemTypes.skill;
     data.gear = [...this.actor.itemTypes.weapon, ...this.actor.itemTypes.item];
@@ -133,7 +134,7 @@ export class MicroliteActorSheet extends ActorSheet {
   /**
    * Create a new trait
    */
-  _createSkill(event) {
+  _createSkill(event?) {
     event?.preventDefault();
     const itemData = {
       name: "New background",

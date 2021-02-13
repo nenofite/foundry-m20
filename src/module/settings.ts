@@ -1,19 +1,16 @@
-class M20Setting {
-    constructor(name, config) {
-        this.name = name;
-        this.config = config;
-    }
+class M20Setting<T> {
+    constructor(public name: string, public config: any) { }
 
     register() {
         return game.settings.register('m20', this.name, this.config);
     }
 
-    get() {
+    get(): T {
         return game.settings.get('m20', this.name);
     }
 }
 
-export const useBackgrounds = new M20Setting('useBackgrounds',
+export const useBackgrounds = new M20Setting<boolean>('useBackgrounds',
     {
         name: "Use backgrounds",
         hint: "Character sheets have Microlite2020's backgrounds instead of skills",
@@ -24,7 +21,7 @@ export const useBackgrounds = new M20Setting('useBackgrounds',
         onChange: _value => updateAllActors(),
     });
 
-export const separateMagicFatigue = new M20Setting('separateMagicFatigue', {
+export const separateMagicFatigue = new M20Setting<boolean>('separateMagicFatigue', {
     name: "Separate magic points",
     hint: "Track magic and fatigue separately. Both are summed to calculate HP.",
     scope: 'world',

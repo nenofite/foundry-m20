@@ -1,4 +1,4 @@
-import { useBackgrounds, separateMagicFatigue } from "../settings.js";
+import { useBackgrounds, separateMagicFatigue } from "../module/settings.js";
 
 const BASE_SKILLS = Object.freeze([
   {
@@ -27,11 +27,53 @@ const BASE_SKILLS = Object.freeze([
   },
 ]);
 
+interface Value<T> {
+  value: T;
+}
+interface MinMaxValue extends Value<number> {
+  value: number;
+  min: number;
+  max: number;
+}
+interface Ability {
+  value: number;
+  mod: number;
+}
+
+export interface MicroliteActorData {
+  health: MinMaxValue;
+  biography: string;
+  ancestry: Value<string>;
+  class: Value<string>;
+  fatigue: Value<number>;
+  "magic": Value<number>;
+  "wounds": Value<number>;
+  "level": {
+    "value": number;
+  },
+  "abilities": {
+    "str": Ability,
+    "agi": Ability,
+    "mind": Ability
+  },
+  "combat": {
+    "ac": {
+      "value": number;
+    },
+    "cb": {
+      "value": number;
+    },
+    "init": {
+      "value": number;
+    }
+  }
+};
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class MicroliteActor extends Actor {
+export class MicroliteActor extends Actor<MicroliteActorData> {
 
   /**
    * Augment the basic actor data with additional dynamic data.
@@ -78,11 +120,14 @@ export class MicroliteActor extends Actor {
       bar2: { attribute: 'wounds' },
       brightSight: 60,
       vision: true,
-      displayBars: 50,
-      displayName: 50
+      displayBars: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
+      displayName: CONST.TOKEN_DISPLAY_MODES.ALWAYS,
     };
-    return this.update({
+    await this.update({
       token: t
     });
+    for (const ta of this.getActiveTokens()) {
+      await ta.update(t);
+    }
   }
 }
