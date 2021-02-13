@@ -1,27 +1,23 @@
 {
-  "name": "m20",
-  "title": "Microlite20",
-  "description": "A simple character sheet for the wonderfully simple Microlite20 system.",
-  "version": "1.1.1",
-  "author": "Benjamin Tucker",
-  "scripts": [],
-  "esmodules": [
-    "m20.js"
-  ],
-  "styles": [
-    "m20.css"
-  ],
-  "packs": [],
-  "languages": [],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.9",
-  "url": "https://github.com/nenofite/foundry-m20",
-  "manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/main/dist/system.json",
-  "download": "https://github.com/nenofite/foundry-m20/releases/download/v1.1.1/dist.zip",
-  "license": "LICENSE.txt",
-  "readme": "",
-  "bugs": "",
-  "changelog": ""
+	"name": "m20",
+	"title": "Microlite20",
+	"description": "A simple character sheet for the wonderfully simple Microlite20 system.",
+	"version": "1.1.2",
+	"author": "Benjamin Tucker",
+	"scripts": [],
+	"esmodules": ["m20.js"],
+	"styles": ["m20.css"],
+	"packs": [],
+	"languages": [],
+	"gridDistance": 5,
+	"gridUnits": "ft",
+	"minimumCoreVersion": "0.7.5",
+	"compatibleCoreVersion": "0.7.9",
+	"url": "https://github.com/nenofite/foundry-m20/releases/tag/v1.1.1",
+	"manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/main/src/system.json",
+	"download": "https://raw.githubusercontent.com/nenofite/foundry-m20/v1.1.2/package/m20-v1.1.2.zip",
+	"license": "LICENSE.txt",
+	"readme": "",
+	"bugs": "",
+	"changelog": ""
 }
