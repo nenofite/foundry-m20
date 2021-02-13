@@ -2,7 +2,7 @@
   "name": "m20",
   "title": "Microlite20",
   "description": "A simple character sheet for the wonderfully simple Microlite20 system.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Benjamin Tucker",
   "scripts": [],
   "esmodules": [
@@ -18,7 +18,7 @@
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "0.7.9",
   "url": "https://github.com/nenofite/foundry-m20",
-  "manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/v1.1.0/dist/system.json",
+  "manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/main/dist/system.json",
   "download": "https://github.com/nenofite/foundry-m20/releases/download/v1.1.0/v1.1.0.zip",
   "license": "LICENSE.txt",
   "readme": "",
