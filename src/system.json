@@ -19,7 +19,7 @@
   "compatibleCoreVersion": "0.7.9",
   "url": "https://github.com/nenofite/foundry-m20",
   "manifest": "https://raw.githubusercontent.com/nenofite/foundry-m20/v1.1.0/dist/system.json",
-  "download": "https://github.com/nenofite/foundry-m20/archive/v1.1.0.zip",
+  "download": "https://github.com/nenofite/foundry-m20/releases/download/v1.1.0/v1.1.0.zip",
   "license": "LICENSE.txt",
   "readme": "",
   "bugs": "",
