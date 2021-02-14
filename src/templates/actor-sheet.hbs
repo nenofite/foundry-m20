@@ -138,11 +138,10 @@
         <div class="item-image"></div>
         <h4 class="item-name">
           {{#if editableBackgrounds}}
-          <a class="create-skill">{{localize 'M20.Backgrounds.Empty'}}</a>
-          {{!-- {{{localize 'M20.Backgrounds.Empty' button='<a class="item-control create-skill" title="Add skill"
-            data-type="skill"><i class="fas fa-plus"></i></a>'}}} --}}
+          {{#localizeBlock 'M20.Backgrounds.Empty' 'button'}}
+          <a class="item-control create-skill" title="Add skill" data-type="skill"><i class="fas fa-plus"></i></a>
+          {{/localizeBlock}}
           {{else}}
-          {{!-- <a class="create-base-skills">Click to add the four base skills.</a> --}}
           <a class="create-base-skills">{{localize 'M20.Skills.Empty'}}</a>
           {{/if}}
         </h4>
@@ -153,8 +152,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="description">{{localize 'M20.Description.Title'}}</a>
+    <a class="item" data-tab="items">{{localize 'M20.Items.Title'}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -170,12 +169,12 @@
       <ol class="items-list">
         <li class="item flexrow item-header">
           <div class="item-image"></div>
-          <div class="item-name">Name</div>
+          <div class="item-name">{{localize 'M20.Items.Name'}}</div>
           <div class="item-header-buttons">
             <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i>
-              Item</a>
+              {{localize 'M20.Items.AddItem'}}</a>
             <a class="item-control item-create" title="Create weapon" data-type="weapon"><i class="fas fa-plus"></i>
-              Weapon</a>
+              {{localize 'M20.Items.AddWeapon'}}</a>
           </div>
         </li>
         {{#each gear}}
@@ -191,7 +190,7 @@
         {{else}}
         <li class="item flexrow item-header">
           <div class="item-image"></div>
-          <h4 class="item-name">No items yet.</h4>
+          <h4 class="item-name">{{localize 'M20.Items.Empty'}}</h4>
         </li>
         {{/each}}
       </ol>

@@ -82,6 +82,11 @@ Hooks.once('init', async function () {
 			return null;
 		}
 	});
+
+	Handlebars.registerHelper('localizeBlock', function (message, key, option) {
+		const value = option.fn(this);
+		return game.i18n.format(message, { [key]: value });
+	});
 });
 
 /* ------------------------------------ */

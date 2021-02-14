@@ -18,5 +18,11 @@
     "M20.CombatBonus": "CB",
     "M20.Initiative": "Init.",
     "M20.Backgrounds.Empty": "Click {button} to add a background.",
-    "M20.Skills.Empty": "Click to add the four base skills."
+    "M20.Skills.Empty": "Click to add the four base skills.",
+    "M20.Description.Title": "Description",
+    "M20.Items.Title": "Items",
+    "M20.Items.Name": "Name",
+    "M20.Items.AddItem": "Item",
+    "M20.Items.AddWeapon": "Weapon",
+    "M20.Items.Empty": "No items yet."
 }
