@@ -12,15 +12,15 @@
       <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
       <div class="flexrow">
         <div class="resource">
-          <label for="data.ancestry.value" class="resource-label">Ancestry</label>
+          <label for="data.ancestry.value" class="resource-label">{{localize 'M20.Ancestry'}}</label>
           <input type="text" name="data.ancestry.value" value="{{data.ancestry.value}}" data-dtype="String" />
         </div>
         <div class="resource">
-          <label for="data.class.value" class="resource-label">Class</label>
+          <label for="data.class.value" class="resource-label">{{localize 'M20.Class'}}</label>
           <input type="text" name="data.class.value" value="{{data.class.value}}" data-dtype="String" />
         </div>
         <div class="level">
-          <label for="data.level.value" class="resource-label">Level</label>
+          <label for="data.level.value" class="resource-label">{{localize 'M20.Level'}}</label>
           <input type="text" name="data.level.value" value="{{data.level.value}}" data-dtype="Number" />
         </div>
       </div>
@@ -32,21 +32,21 @@
       <thead>
         <tr>
           {{#if separateMagicFatigue}}
-          <th colspan="4">Health</th>
+          <th colspan="4">{{localize 'M20.Health'}}</th>
           {{else}}
-          <th colspan="2">Health</th>
+          <th colspan="2">{{localize 'M20.Health'}}</th>
           {{/if}}
-          <th colspan="2">Wounds</th>
+          <th colspan="2">{{localize 'M20.Wounds'}}</th>
         </tr>
         <tr>
           {{#if separateMagicFatigue}}
-          <th>Fatigue</th>
-          <th>Magic</th>
+          <th>{{localize 'M20.Fatigue'}}</th>
+          <th>{{localize 'M20.Magic'}}</th>
           {{/if}}
-          <th>HP</th>
-          <th>Max</th>
-          <th>WP</th>
-          <th>Max</th>
+          <th>{{localize 'M20.Hp'}}</th>
+          <th>{{localize 'M20.Max'}}</th>
+          <th>{{localize 'M20.Wp'}}</th>
+          <th>{{localize 'M20.Max'}}</th>
         </tr>
       </thead>
       <tbody>
@@ -72,16 +72,16 @@
     <table class="flex-group-center">
       <thead>
         <tr>
-          <th colspan="3">Stats</th>
-          <th colspan="3">Combat</th>
+          <th colspan="3">{{localize 'M20.Stats'}}</th>
+          <th colspan="3">{{localize 'M20.Combat'}}</th>
         </tr>
         <tr>
-          <th>Strength</th>
-          <th>Agility</th>
-          <th>Mind</th>
-          <th>AC</th>
-          <th>CB</th>
-          <th>Init.</th>
+          <th>{{localize 'M20.Strength'}}</th>
+          <th>{{localize 'M20.Agility'}}</th>
+          <th>{{localize 'M20.Mind'}}</th>
+          <th>{{localize 'M20.ArmorClass'}}</th>
+          <th>{{localize 'M20.CombatBonus'}}</th>
+          <th>{{localize 'M20.Initiative'}}</th>
         </tr>
       </thead>
       <tbody>
@@ -138,11 +138,11 @@
         <div class="item-image"></div>
         <h4 class="item-name">
           {{#if editableBackgrounds}}
-          Click
-          <a class="item-control create-skill" title="Add skill" data-type="skill"><i class="fas fa-plus"></i></a>
-          to add a background.
+          {{localize 'M20.Backgrounds.Empty' button='<a class="item-control create-skill" title="Add skill"
+            data-type="skill"><i class="fas fa-plus"></i></a>'}}
           {{else}}
-          <a class="create-base-skills">Click to add the four base skills.</a>
+          {{!-- <a class="create-base-skills">Click to add the four base skills.</a> --}}
+          <a class="create-base-skills">{{localize 'M20.Skills.Empty'}}</a>
           {{/if}}
         </h4>
       </li>
