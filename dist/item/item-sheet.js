@@ -17,7 +17,7 @@ export class MicroliteItemSheet extends ItemSheet {
     }
     /** @override */
     get template() {
-        const path = "systems/m20/assets";
+        const path = "systems/m20/templates";
         // Return a single sheet for all item types.
         // return `${path}/item-sheet.html`;
         // Alternatively, you could use the following return statement to do a

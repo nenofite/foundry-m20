@@ -11,7 +11,7 @@ export class MicroliteActorSheet extends ActorSheet<MicroliteActorData, Microlit
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["m20", "sheet", "actor"],
-      template: "systems/m20/assets/actor-sheet.hbs",
+      template: "systems/m20/templates/actor-sheet.hbs",
       width: 480,
       height: 780,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]

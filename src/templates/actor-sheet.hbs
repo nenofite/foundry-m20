@@ -138,8 +138,9 @@
         <div class="item-image"></div>
         <h4 class="item-name">
           {{#if editableBackgrounds}}
-          {{localize 'M20.Backgrounds.Empty' button='<a class="item-control create-skill" title="Add skill"
-            data-type="skill"><i class="fas fa-plus"></i></a>'}}
+          <a class="create-skill">{{localize 'M20.Backgrounds.Empty'}}</a>
+          {{!-- {{{localize 'M20.Backgrounds.Empty' button='<a class="item-control create-skill" title="Add skill"
+            data-type="skill"><i class="fas fa-plus"></i></a>'}}} --}}
           {{else}}
           {{!-- <a class="create-base-skills">Click to add the four base skills.</a> --}}
           <a class="create-base-skills">{{localize 'M20.Skills.Empty'}}</a>
