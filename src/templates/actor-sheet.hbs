@@ -85,14 +85,9 @@
         </tr>
       </thead>
       <tbody>
-        {{#each data.abilities as |ability key|}}
-        <td>
-          <input class="narrow-input" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
-            data-dtype="Number" />
-          <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod"
-            data-label="{{toUpperCase key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-        </td>
-        {{/each}}
+        {{> stat key="str" ability=data.abilities.str}}
+        {{> stat key="agi" ability=data.abilities.agi}}
+        {{> stat key="mind" ability=data.abilities.mind}}
         <td>
           <input class="narrow-input" type="text" name="data.combat.ac.value" value="{{data.combat.ac.value}}"
             data-dtype="Number" />
@@ -208,4 +203,13 @@
   {{/each}}
 </div>
 {{/if}}
+{{/inline}}
+
+{{#*inline "stat"}}
+<td>
+  <input class="narrow-input" type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}"
+    data-dtype="Number" />
+  <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod"
+    data-label="{{toUpperCase key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+</td>
 {{/inline}}
